@@ -11,5 +11,15 @@ namespace Mission06_Ross.Controllers
         {
             return View();
         }
+
+        public IActionResult GetToKnowJoel()
+        {
+            return View();
+        }
+
+        public IActionResult AddMovie()
+        {
+            return View();
+        }
     }
 }
