@@ -1,38 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model MovieSubmission
 
 <h1>Add Your Favorite Movies</h1>
 
-<form>
-    <label for="" id="">Category</label><br />
-    <input /><br /><br />
+<form method="post">
+    <label asp-for="Category" id="">Category</label><br />
+    <input asp-for="Category"/><br /><br />
 
-    <label for="" id="">Title</label><br />
-    <input /><br /><br />
+    <label asp-for="Title" id="">Title</label><br />
+    <input asp-for="Title"/><br /><br />
 
-    <label for="" id="">Year</label><br />
-    <input /><br /><br />
+    <label asp-for="Year" id="">Year</label><br />
+    <input asp-for="Year"/><br /><br />
 
-    <label for="" id="">Director</label><br />
-    <input /><br /><br />
+    <label asp-for="Director" id="">Director</label><br />
+    <input asp-for="Director" /><br /><br />
 
-    <label for="" id="">Rating</label><br />
-    <select />
-    <option value="G">G</option>
-    <option value="PG">PG</option>
-    <option value="PG-13">PG-13</option>
-    <option value="R">R</option>
+    <label asp-for="Rating" id="">Rating</label><br />
+    <select asp-for="Rating" />
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
     <br /><br />
 
-    <label for="" id="">Edited</label><br />
-    <input /><br /><br />
+    <label asp-for="Edited" id="">Edited</label><br />
+    <input asp-for="Edited" /><br /><br />
 
-    <label for="" id="">Lent to:</label><br />
-    <input /><br /><br />
+    <label asp-for="LentTo" id="">Lent to:</label><br />
+    <input asp-for="LentTo" /><br /><br />
 
-    <label for="" id="">Notes</label><br />
-    <input /><br /><br />'
+    <label asp-for="Notes" id="">Notes</label><br />
+    <input asp-for="Notes" /><br /><br />'
+
+    <button type="submit">Submit Movie</button>
 </form>

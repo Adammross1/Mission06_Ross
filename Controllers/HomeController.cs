@@ -17,9 +17,16 @@ namespace Mission06_Ross.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult AddMovie()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddMovie(MovieSubmission response)
+        {
+            return View("Confirmation", response);
         }
     }
 }
