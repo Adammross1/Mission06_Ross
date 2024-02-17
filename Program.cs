@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Mission06_Ross.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MovieSubmissionContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:Connection"]);
+});
 
 var app = builder.Build();
 

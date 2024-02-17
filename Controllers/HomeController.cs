@@ -6,6 +6,11 @@ namespace Mission06_Ross.Controllers
 {
     public class HomeController : Controller
     {
+        private MovieSubmissionContext _context;
+        public HomeController(MovieSubmissionContext temp) 
+        {
+            _context = temp;
+        }
 
         public IActionResult Index()
         {
@@ -26,6 +31,9 @@ namespace Mission06_Ross.Controllers
         [HttpPost]
         public IActionResult AddMovie(MovieSubmission response)
         {
+            _context.MovieSubmissions.Add(response); //Add record to the database
+            _context.SaveChanges();
+
             return View("Confirmation", response);
         }
     }
