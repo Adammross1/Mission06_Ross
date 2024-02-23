@@ -14,7 +14,10 @@ namespace Mission06_Ross.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //Linq
+            var submissions = _context.MovieSubmissions
+                .OrderBy(x => x.Title).ToList();
+            return View(submissions);
         }
 
         public IActionResult GetToKnowJoel()

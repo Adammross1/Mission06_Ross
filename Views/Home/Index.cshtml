@@ -2,9 +2,40 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model List<MovieSubmission>
+
 <h1>The Joel Hilton Film Collection</h1>
 
 <div class="">
     <img src="~/img/JoelHiltonHeadshot.jpg" height="500px"/>
 </div>
 
+<table class="table table-bordered">
+    <thead class="fw-bold">
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>Lent To</td>
+            <td>Notes</td>
+        </tr>
+    </thead>
+
+    @foreach (var listItem in Model) {
+        <tbody>
+            <tr>
+                <td>@listItem.Category</td>
+                <td>@listItem.Title</td>
+                <td>@listItem.Year</td>
+                <td>@listItem.Director</td>
+                <td>@listItem.Rating</td>
+                <td>@listItem.Edited</td>
+                <td>@listItem.LentTo</td>
+                <td>@listItem.Notes</td>
+            </tr>
+        </tbody>
+    }
+</table>
