@@ -28,6 +28,8 @@ namespace Mission06_Ross.Controllers
         [HttpGet]
         public IActionResult AddMovie()
         {
+            ViewBag.Categories = _context.MovieSubmissions
+                .OrderBy(x => x.Title).ToList();
             return View();
         }
 
@@ -38,6 +40,15 @@ namespace Mission06_Ross.Controllers
             _context.SaveChanges();
 
             return View("Confirmation", response);
+        }
+
+        public IActionResult Edit()
+        {
+            var recordToEdit = _context.MovieSubmissions
+                .Where(x => x.Title == "");
+            ViewBag.Categories = _context.MovieSubmissions
+            .OrderBy(x => x.Title).ToList();
+            return View("AddMovie"); 
         }
     }
 }

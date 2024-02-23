@@ -24,8 +24,8 @@
         </tr>
     </thead>
 
-    @foreach (var listItem in Model) {
-        <tbody>
+    <tbody>
+        @foreach (var listItem in Model) {
             <tr>
                 <td>@listItem.Category</td>
                 <td>@listItem.Title</td>
@@ -35,7 +35,10 @@
                 <td>@listItem.Edited</td>
                 <td>@listItem.LentTo</td>
                 <td>@listItem.Notes</td>
+
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit">Edit</a></td>
+                <td><a class="btn btn-danger">Delete</a></td>
             </tr>
-        </tbody>
-    }
+        }
+    <tbody>
 </table>

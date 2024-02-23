@@ -10,7 +10,7 @@ using Mission06_Ross.Models;
 namespace Mission06_Ross.Migrations
 {
     [DbContext(typeof(MovieSubmissionContext))]
-    [Migration("20240223184340_Initial")]
+    [Migration("20240223214534_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

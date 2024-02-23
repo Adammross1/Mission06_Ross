@@ -5,6 +5,7 @@ namespace Mission06_Ross.Models
 {
     public class MovieSubmission
     {
+
         [Required]
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }

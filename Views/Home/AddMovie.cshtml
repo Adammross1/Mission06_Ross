@@ -3,8 +3,13 @@
 <h1>Add Your Favorite Movies</h1>
 
 <form method="post">
-    <label asp-for="Category" id="">Category</label><br />
-    <input asp-for="Category"/><br /><br />
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Category c in ViewBag.Categories)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select><br /><br />
 
     <label asp-for="Title" id="">Title</label><br />
     <input asp-for="Title"/><br /><br />

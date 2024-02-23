@@ -14,7 +14,7 @@ namespace Mission06_Ross.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder) //Seed data
         {
             modelBuilder.Entity<Category>().HasData(
-                new Category {  CategoryId= 1, CategoryName = "Comedy"},
+                new Category { CategoryId = 1, CategoryName = "Comedy"},
                 new Category { CategoryId = 2, CategoryName = "sports" },
                 new Category { CategoryId = 3, CategoryName = "Miscellaneous" },
                 new Category { CategoryId = 4, CategoryName = "Drama" },
