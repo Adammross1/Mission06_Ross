@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Ross.Models
 {
-    public class MovieSubmission
+    public class Movie
     {
         [Key]
         [Required]
@@ -11,22 +11,24 @@ namespace Mission06_Ross.Models
 
         [Required(ErrorMessage = "Category is required")]
         [ForeignKey("CategoryId")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         //public int CategoryName { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         [Required(ErrorMessage = "Title is required")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         [Required(ErrorMessage = "Year is required")]
         [Range(1888,2024, ErrorMessage = "Year is invalid")]
-        public string Year { get; set; }
-        [Required(ErrorMessage = "Director name is required")]
-        public string Director { get; set; }
+        public string? Year { get; set; }
+        public string? Director { get; set; }
         [Required(ErrorMessage = "Rating is required")]
-        public string Rating { get; set; }
+        public string? Rating { get; set; }
         [Required]
-        public bool Edited { get; set; }
+        public bool? Edited { get; set; }
         public string? LentTo { get; set; }
+
+        [Required]
+        public bool? CopiedToPlex { get; set; }
 
         [MaxLength(25)]
         public string? Notes { get; set; }

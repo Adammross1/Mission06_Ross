@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model List<MovieSubmission>
+@model List<Movie>
 
 <h1>The Joel Hilton Film Collection</h1>
 
@@ -27,7 +27,7 @@
     <tbody>
         @foreach (var listItem in Model) {
             <tr>
-                <td>@listItem.CategoryId</td>
+                <td>@listItem.Category</td>
                 <td>@listItem.Title</td>
                 <td>@listItem.Year</td>
                 <td>@listItem.Director</td>

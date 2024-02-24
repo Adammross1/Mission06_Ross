@@ -2,13 +2,13 @@
 
 namespace Mission06_Ross.Models
 {
-    public class MovieSubmissionContext : DbContext
+    public class MovieContext : DbContext
     {
-        public MovieSubmissionContext(DbContextOptions<MovieSubmissionContext> options) : base (options)
+        public MovieContext(DbContextOptions<MovieContext> options) : base (options)
         {
 
         }
-        public DbSet<MovieSubmission> MovieSubmissions { get; set;}
+        public DbSet<Movie> Movies { get; set;}
         public DbSet<Category> Categories { get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) //Seed data
