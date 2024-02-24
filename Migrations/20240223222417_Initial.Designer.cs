@@ -10,7 +10,7 @@ using Mission06_Ross.Models;
 namespace Mission06_Ross.Migrations
 {
     [DbContext(typeof(MovieSubmissionContext))]
-    [Migration("20240223214534_Initial")]
+    [Migration("20240223222417_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -78,8 +78,9 @@ namespace Mission06_Ross.Migrations
 
             modelBuilder.Entity("Mission06_Ross.Models.MovieSubmission", b =>
                 {
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MovieId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
@@ -102,11 +103,15 @@ namespace Mission06_Ross.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Year")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Title");
+                    b.HasKey("MovieId");
 
                     b.HasIndex("CategoryId");
 

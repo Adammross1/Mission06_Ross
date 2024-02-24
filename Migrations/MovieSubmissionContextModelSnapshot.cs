@@ -75,8 +75,9 @@ namespace Mission06_Ross.Migrations
 
             modelBuilder.Entity("Mission06_Ross.Models.MovieSubmission", b =>
                 {
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MovieId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
@@ -99,11 +100,15 @@ namespace Mission06_Ross.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Year")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Title");
+                    b.HasKey("MovieId");
 
                     b.HasIndex("CategoryId");
 

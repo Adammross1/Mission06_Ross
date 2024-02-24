@@ -29,8 +29,10 @@ namespace Mission06_Ross.Migrations
                 name: "MovieSubmissions",
                 columns: table => new
                 {
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    MovieId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
                     Year = table.Column<string>(type: "TEXT", nullable: false),
                     Director = table.Column<string>(type: "TEXT", nullable: false),
                     Rating = table.Column<string>(type: "TEXT", nullable: false),
@@ -40,7 +42,7 @@ namespace Mission06_Ross.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieSubmissions", x => x.Title);
+                    table.PrimaryKey("PK_MovieSubmissions", x => x.MovieId);
                     table.ForeignKey(
                         name: "FK_MovieSubmissions_Categories_CategoryId",
                         column: x => x.CategoryId,

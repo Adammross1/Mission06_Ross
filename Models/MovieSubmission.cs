@@ -5,13 +5,15 @@ namespace Mission06_Ross.Models
 {
     public class MovieSubmission
     {
+        [Key]
+        [Required]
+        public int MovieId { get; set; }
 
         [Required]
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
-        [Key]
         [Required]
         public string Title { get; set; }
         [Required]

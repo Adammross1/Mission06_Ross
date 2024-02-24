@@ -28,8 +28,7 @@ namespace Mission06_Ross.Controllers
         [HttpGet]
         public IActionResult AddMovie()
         {
-            ViewBag.Categories = _context.MovieSubmissions
-                .OrderBy(x => x.Title).ToList();
+            ViewBag.Categories = _context.Categories.ToList();
             return View();
         }
 
@@ -42,13 +41,24 @@ namespace Mission06_Ross.Controllers
             return View("Confirmation", response);
         }
 
-        public IActionResult Edit()
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
             var recordToEdit = _context.MovieSubmissions
-                .Where(x => x.Title == "");
-            ViewBag.Categories = _context.MovieSubmissions
-            .OrderBy(x => x.Title).ToList();
-            return View("AddMovie"); 
+                .Single(x => x.MovieId == id);
+
+            ViewBag.Categories = _context.Categories.ToList();
+
+            return View("AddMovie", recordToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(MovieSubmission updatedInfo) 
+        {
+            _context.Update(updatedInfo);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
