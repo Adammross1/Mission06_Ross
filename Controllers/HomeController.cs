@@ -17,6 +17,7 @@ namespace Mission06_Ross.Controllers
         {
             //Linq
             var submissions = _context.Movies
+                .Include(m => m.Category) //categories should be whatever you named your category model
                 .OrderBy(x => x.Title).ToList();
             return View(submissions);
         }
@@ -29,7 +30,6 @@ namespace Mission06_Ross.Controllers
         [HttpGet]
         public IActionResult AddMovie()
         {
-            _context.Movies.Include("Category").ToList();
             ViewBag.Categories = _context.Categories.ToList();
             return View("AddMovie", new Movie());
         }
