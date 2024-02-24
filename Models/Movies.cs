@@ -23,11 +23,11 @@ namespace Mission06_Ross.Models
         public string? Director { get; set; }
         [Required(ErrorMessage = "Rating is required")]
         public string? Rating { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter 'true' or 'false' for Edited")]
         public bool? Edited { get; set; }
         public string? LentTo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter 'true' or 'false' for Copied to Plex")]
         public bool? CopiedToPlex { get; set; }
 
         [MaxLength(25)]
