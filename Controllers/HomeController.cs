@@ -29,16 +29,25 @@ namespace Mission06_Ross.Controllers
         public IActionResult AddMovie()
         {
             ViewBag.Categories = _context.Categories.ToList();
-            return View();
+            return View("AddMovie", new MovieSubmission());
         }
 
         [HttpPost]
         public IActionResult AddMovie(MovieSubmission response)
         {
-            _context.MovieSubmissions.Add(response); //Add record to the database
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.MovieSubmissions.Add(response); //Add record to the database
+                _context.SaveChanges();
 
-            return View("Confirmation", response);
+                return View("Confirmation", response);
+            }
+            else //Invalid data
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+                return View(response);
+            }
+            
         }
 
         [HttpGet]
@@ -56,6 +65,24 @@ namespace Mission06_Ross.Controllers
         public IActionResult Edit(MovieSubmission updatedInfo) 
         {
             _context.Update(updatedInfo);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var recordToDelete = _context.MovieSubmissions
+                .Single(x => x.MovieId == id);
+
+            return View(recordToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(MovieSubmission movie)
+        {
+            _context.MovieSubmissions.Remove(movie);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
